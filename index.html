@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shin Min Cheol | Backend Developer</title>
+<meta name="description" content="CV, Computer Engineering graduate and aspiring backend developer">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f4f5f7;
+    --text: #1c1e21;
+    --muted: #5f6672;
+    --accent: #2f6fed;
+    --border: #e1e4e8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12141a;
+      --surface: #1b1e27;
+      --text: #eceef2;
+      --muted: #9aa1ad;
+      --accent: #6c9cff;
+      --border: #2a2e3a;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav .container { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  .nav .logo { font-weight: 700; color: var(--text); }
+  .nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.95rem; }
+  .nav ul a { color: var(--muted); }
+  .nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 1.5rem; margin-bottom: 20px; }
+  p + p { margin-top: 12px; }
+
+  .hero { padding: 72px 0 56px; }
+  .hero .hello { color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .hero h1 { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.15; margin-bottom: 8px; }
+  .hero .role { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
+  .hero .tagline { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin-bottom: 24px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px;
+    font-weight: 600; margin: 0 8px 8px 0;
+    background: var(--accent); color: #fff;
+  }
+  .btn:hover { text-decoration: none; opacity: 0.9; }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+  .about { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .about img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; background: var(--surface); }
+  .about .text { flex: 1; min-width: 240px; }
+
+  .skill-group { margin-bottom: 18px; }
+  .skill-group h3 { font-size: 1rem; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; }
+
+  .cards { display: grid; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .card h3 { font-size: 1.1rem; margin-bottom: 2px; }
+  .card .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+  .card ul { margin: 10px 0 0 18px; }
+  .card .stack { margin-top: 12px; }
+  .card .stack .tag { background: var(--bg); font-size: 0.82rem; padding: 2px 10px; }
+  .card .links { margin-top: 12px; font-size: 0.95rem; }
+  .card .links a { margin-right: 14px; }
+
+  .contact-list { list-style: none; margin-top: 14px; }
+  .contact-list li { margin-bottom: 8px; }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 28px 0; }
+
+  @media (max-width: 560px) {
+    .nav ul { gap: 12px; font-size: 0.85rem; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="#top" class="logo">Shin Min Cheol</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hello">Hello, I'm</p>
+      <h1>Shin Min Cheol</h1>
+      <p class="role">Backend Developer · Computer Engineering Graduate</p>
+      <p class="tagline">I build reliable APIs and database-driven systems. I recently graduated and I'm looking for my first backend role where I can learn fast and contribute from day one.</p>
+      <a class="btn" href="#projects">View my projects</a>
+      <a class="btn secondary" href="your-cv.pdf" download>Download CV</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2>About me</h2>
+      <div class="about">
+        <!-- Replace photo.jpg with your own photo, or delete this img line -->
+        <img src="photo.jpg" alt="Photo of Your Name">
+        <div class="text">
+          <p>I graduated in Computer Engineering from Maranatha Christian University] in month 6 2026. Driven by a passion for building software from the ground up, I enjoy creating innovative applications that solve real-world problems and make a positive impact on people's daily lives.</p>
+          <p>I enjoy Bringing creative ideas to life through innovative web & mobile applications. Outside of coding, Passionate about exploring emerging gadgets, studying animation and visual design, and staying up to date with new technology trends.My Location: Anseong-si, Gyeonggi-do, South Korea Work Preference: Open to On-site roles across South Korea & Relocation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">SQL</span>
+          <span class="tag">C / C** </span>
+        </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Project 1: SmartClassroom using respberry pi</h3>
+          <p class="meta">Personal project · 2025</p>
+          <p>Engineered an automated system to manage classroom infrastructure (projectors, lighting, HVAC), eliminating manual operational delay before lectures.</p>
+          <ul>
+            <li>Configured Raspberry Pi GPIO pins and backend services to interface with hardware components and sensors.</li>
+            <li>Implemented input validation, secure communication, and automated error recovery for reliable daily operation.</li>
+            <li>Created comprehensive technical documentation and deployed the control system to a live production environment.</li>
+          </ul>
+         <div class="stack tags">
+            <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+          <div class="links"><a href="#">Source code</a><a href="#">Live demo</a></div>
+        </article>
+
+        <article class="card">
+          <h3>Project 2: e.g. University capstone / thesis</h3>
+          <p class="meta">[University Name] · 2025–2026</p>
+          <p>What the project was, your part in it, and the result. If it was a team project, say how many people and what you were responsible for.</p>
+          <div class="stack tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
+          </div>
+          <div class="links"><a href="#">Source code</a></div>
+        </article>
+
+        <article class="card">
+          <h3>Project 3: e.g. This portfolio website</h3>
+          <p class="meta">Personal project · 2026</p>
+          <p>Built with HTML and CSS, responsive on mobile, hosted for free.</p>
+          <div class="links"><a href="#">Source code</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+ <section id="education">
+  <div class="container">
+    <h2>Education &amp; certificates</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Computer Engineering</h3>
+        <p class="meta">Maranatha Christian University · Graduated June 2026</p>
+        <p>Relevant courses:</p>
+        <div class="tags" style="margin-top:8px;">
+          <span class="tag">Databases &amp; SQL</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">Game Programming</span>
+          <span class="tag">Arduino</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+  <!-- ACTIVITIES -->
+  <section id="activities">
+  <div class="container">
+    <h2>Student organization &amp;</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Planning &amp; Budget Officer, Computer Engineering Student Organization</h3>
+        <p class="meta">Maranatha Christian University · 2001 – 2026</p>
+        <ul>
+          <li>Planned events and workshops from start to finish: schedules, activities, and what was needed on the day</li>
+          <li>Managed the organization's budget and tracked spending on snacks, lunch, and supplies so every event stayed within funds</li>
+          <li>Prepared for the monthly meetings with the department head organizer by reporting on plans and requesting what the group needed</li>
+          <li>Helped run orientation games and icebreakers to welcome new students</li>
+        </ul>
+        <div class="stack tags">
+          <span class="tag">Event planning</span>
+          <span class="tag">Budgeting</span>
+          <span class="tag">Organization</span>
+          <span class="tag">Reporting</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get in touch</h2>
+      <p>I'm open to junior backend and software engineering roles. The easiest way to reach me:</p>
+      <ul class="contact-list">
+        <li>Phone number: <a href="010-7430-1016"></a></li>
+        <li>Email: <a href="minkr2001@gmail.com"></a></li>
+        (<!--<li>GitHub: <a href="https://github.com/your-username"></a></li>-->)
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">&copy; <span id="year"></span> Your Name</div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

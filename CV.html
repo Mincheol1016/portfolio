@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shin Min Cheol | Backend Developer</title>
+<meta name="description" content="CV, Computer Engineering graduate and aspiring backend developer">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f4f5f7;
+    --text: #1c1e21;
+    --muted: #5f6672;
+    --accent: #2f6fed;
+    --border: #e1e4e8;
+  }
+  /* Dark colors: used automatically when the visitor's device is in dark mode,
+     or when the visitor presses the theme button */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12141a;
+      --surface: #1b1e27;
+      --text: #eceef2;
+      --muted: #9aa1ad;
+      --accent: #6c9cff;
+      --border: #2a2e3a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12141a;
+    --surface: #1b1e27;
+    --text: #eceef2;
+    --muted: #9aa1ad;
+    --accent: #6c9cff;
+    --border: #2a2e3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  html[lang="ko"] body { word-break: keep-all; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* Top bar */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav .container {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 6px 18px; min-height: 56px; padding-top: 6px; padding-bottom: 6px;
+  }
+  .nav .logo { font-weight: 700; color: var(--text); margin-right: auto; }
+  .nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.95rem; }
+  .nav ul a { color: var(--muted); }
+  .nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Language switch */
+  .lang-switch {
+    display: inline-flex; border: 1px solid var(--border);
+    border-radius: 999px; overflow: hidden;
+  }
+  .lang-switch button {
+    border: none; background: transparent; color: var(--muted);
+    font: inherit; font-size: 0.85rem; font-weight: 600;
+    padding: 4px 12px; cursor: pointer;
+  }
+  .lang-switch button:hover { color: var(--accent); }
+  .lang-switch button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+  .theme-btn {
+    border: 1px solid var(--border); background: transparent;
+    border-radius: 999px; width: 32px; height: 28px;
+    font-size: 0.95rem; line-height: 1; cursor: pointer;
+  }
+  .theme-btn:hover { border-color: var(--accent); }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 64px; }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 1.5rem; margin-bottom: 20px; }
+  p + p { margin-top: 12px; }
+
+  .hero { padding: 72px 0 56px; }
+  .hero .hello { color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .hero h1 { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.15; margin-bottom: 8px; }
+  .hero .role { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
+  .hero .tagline { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin-bottom: 24px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px;
+    font-weight: 600; margin: 0 8px 8px 0;
+    background: var(--accent); color: #fff;
+  }
+  .btn:hover { text-decoration: none; opacity: 0.9; }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+  .about { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .about img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; background: var(--surface); }
+  .about .text { flex: 1; min-width: 240px; }
+
+  .skill-group { margin-bottom: 18px; }
+  .skill-group h3 { font-size: 1rem; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; }
+
+  .cards { display: grid; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .card h3 { font-size: 1.1rem; margin-bottom: 2px; }
+  .card .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+  .card ul { margin: 10px 0 0 18px; }
+  .card .stack { margin-top: 12px; }
+  .card .stack .tag { background: var(--bg); font-size: 0.82rem; padding: 2px 10px; }
+  .card .links { margin-top: 12px; font-size: 0.95rem; }
+  .card .links a { margin-right: 14px; }
+
+  .contact-list { list-style: none; margin-top: 14px; }
+  .contact-list li { margin-bottom: 8px; }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 28px 0; }
+
+  @media (max-width: 640px) {
+    .nav nav { order: 3; flex-basis: 100%; }
+    .nav ul { gap: 14px; font-size: 0.9rem; }
+    section { padding: 40px 0; scroll-margin-top: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="#top" class="logo" data-i18n="name">Shin Min Cheol</a>
+    <nav>
+      <ul>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#education" data-i18n="nav.education">Education</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Language switch (top right) -->
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ko" aria-pressed="false">한국어</button>
+    </div>
+    <!-- Light / dark switch -->
+    <button type="button" class="theme-btn" aria-label="Switch to dark mode">🌙</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hello" data-i18n="hero.hello">Hello, I'm</p>
+      <h1 data-i18n="name">Shin Min Cheol</h1>
+      <p class="role" data-i18n="hero.role">Backend Developer · Computer Engineering Graduate</p>
+      <p class="tagline" data-i18n="hero.tagline">I build reliable APIs and database-driven systems. I recently graduated and I'm looking for my first backend role where I can learn fast and contribute from day one.</p>
+      <a class="btn" href="#projects" data-i18n="hero.view">View my projects</a>
+      <a class="btn secondary" href="your-cv.pdf" download data-i18n="hero.cv">Download CV</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 data-i18n="about.title">About me</h2>
+      <div class="about">
+        <!-- Put your photo in the same folder and name it photo.jpg (the picture hides itself if the file is missing) -->
+        <img src="photo.jpg" alt="Photo of Shin Min Cheol" data-i18n-alt="about.alt" onerror="this.style.display='none'">
+        <div class="text">
+          <p data-i18n="about.p1">I graduated in Computer Engineering from Maranatha Christian University in June 2026. Driven by a passion for building software from the ground up, I enjoy creating innovative applications that solve real-world problems and make a positive impact on people's daily lives.</p>
+          <p data-i18n="about.p2">I enjoy bringing creative ideas to life through innovative web and mobile applications. Outside of coding, I like exploring emerging gadgets, studying animation and visual design, and staying up to date with new technology trends.</p>
+          <p data-i18n="about.p3">Location: Anseong-si, Gyeonggi-do, South Korea · Work preference: open to on-site roles across South Korea and open to relocation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 data-i18n="skills.title">Skills</h2>
+      <div class="skill-group">
+        <h3 data-i18n="skills.languages">Languages</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">SQL</span>
+          <span class="tag">C / C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n="skills.backend">Backend &amp; tools</h3>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 data-i18n="projects.title">Projects</h2>
+      <div class="cards">
+
+        <article class="card">
+          <h3 data-i18n="p1.title">Project 1: Smart Classroom with Raspberry Pi</h3>
+          <p class="meta" data-i18n="p1.meta">Personal project · 2025</p>
+          <p data-i18n="p1.desc">Engineered an automated system to manage classroom infrastructure (projectors, lighting, HVAC), eliminating manual operational delay before lectures.</p>
+          <ul>
+            <li data-i18n="p1.b1">Configured Raspberry Pi GPIO pins and backend services to interface with hardware components and sensors.</li>
+            <li data-i18n="p1.b2">Implemented input validation, secure communication, and automated error recovery for reliable daily operation.</li>
+            <li data-i18n="p1.b3">Created comprehensive technical documentation and deployed the control system to a live production environment.</li>
+          </ul>
+          <!-- Change these tags to what you really used in this project -->
+          <div class="stack tags">
+            <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+          <div class="links"><a href="#" data-i18n="link.source">Source code</a><a href="#" data-i18n="link.demo">Live demo</a></div>
+        </article>
+
+        <!-- NEW: Job Queue project -->
+        <article class="card">
+          <h3 data-i18n="q.title">Job Queue &amp; Monitoring System</h3>
+          <p class="meta" data-i18n="q.meta">Personal project · 2026 · In progress</p>
+          <p data-i18n="q.desc">A background job queue where multiple workers process jobs in parallel, built to learn how reliable asynchronous systems work.</p>
+          <ul>
+            <li data-i18n="q.b1">Built a PostgreSQL-backed job queue where workers claim jobs with row locking (FOR UPDATE SKIP LOCKED), so each job is taken by only one worker.</li>
+            <li data-i18n="q.b2">Wrote a worker process with execution logs for every job attempt, and a REST API for adding jobs.</li>
+          </ul>
+          <div class="stack tags">
+            <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+          <div class="links"><a href="https://github.com/Mincheol1016/job-queue-monitor" data-i18n="link.source">Source code</a></div>
+        </article>
+
+        <article class="card">
+          <h3 data-i18n="p2.title">Project 2: [Capstone / Thesis Title]</h3>
+          <p class="meta" data-i18n="p2.meta">Maranatha Christian University · 2025–2026 · Team of [number]</p>
+          <p data-i18n="p2.desc">[One sentence on what the project does.] My part: [what you built].</p>
+          <div class="stack tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
+          </div>
+          <div class="links"><a href="#" data-i18n="link.source">Source code</a></div>
+        </article>
+
+        <article class="card">
+          <h3 data-i18n="p3.title">Project 3: Portfolio Website</h3>
+          <p class="meta" data-i18n="p3.meta">Personal project · 2026</p>
+          <p data-i18n="p3.desc">A responsive personal website that works as an online CV, with dark mode and an English/Korean language switch. Built with HTML, CSS, and JavaScript.</p>
+          <div class="stack tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+          <div class="links"><a href="#" data-i18n="link.source">Source code</a></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 data-i18n="edu.title">Education &amp; certificates</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 data-i18n="edu.degree">Computer Engineering</h3>
+          <p class="meta" data-i18n="edu.meta">Maranatha Christian University · Graduated June 2026</p>
+          <p data-i18n="edu.courses">Relevant courses:</p>
+          <div class="tags" style="margin-top:8px;">
+            <span class="tag" data-i18n="edu.c1">Databases &amp; SQL</span>
+            <span class="tag" data-i18n="edu.c2">Web Development</span>
+            <span class="tag" data-i18n="edu.c3">Game Programming</span>
+            <span class="tag" data-i18n="edu.c4">Arduino</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section id="activities">
+    <div class="container">
+      <h2 data-i18n="act.title">Student organization &amp; leadership</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 data-i18n="act.role">Planning &amp; Budget Officer, Computer Engineering Student Organization</h3>
+          <p class="meta" data-i18n="act.meta">Maranatha Christian University · [Start year] – 2026</p>
+          <ul>
+            <li data-i18n="act.b1">Planned events and workshops from start to finish: schedules, activities, and what was needed on the day</li>
+            <li data-i18n="act.b2">Managed the organization's budget and tracked spending on snacks, lunch, and supplies so every event stayed within funds</li>
+            <li data-i18n="act.b3">Prepared for the monthly meetings with the department head organizer by reporting on plans and requesting what the group needed</li>
+            <li data-i18n="act.b4">Helped run orientation games and icebreakers to welcome new students</li>
+          </ul>
+          <div class="stack tags">
+            <span class="tag" data-i18n="act.t1">Event planning</span>
+            <span class="tag" data-i18n="act.t2">Budgeting</span>
+            <span class="tag" data-i18n="act.t3">Organization</span>
+            <span class="tag" data-i18n="act.t4">Reporting</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 data-i18n="contact.title">Get in touch</h2>
+      <p data-i18n="contact.intro">I'm open to junior backend and software engineering roles. The easiest way to reach me:</p>
+      <ul class="contact-list">
+        <li><span data-i18n="contact.phone">Phone:</span> <a href="tel:+821074301016">010-7430-1016</a></li>
+        <li><span data-i18n="contact.email">Email:</span> <a href="mailto:minkr2001@gmail.com">minkr2001@gmail.com</a></li>
+        <li>GitHub: <a href="https://github.com/Mincheol1016">github.com/Mincheol1016</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">&copy; <span id="year"></span> <span data-i18n="name">Shin Min Cheol</span></div>
+</footer>
+
+<script>
+(function () {
+  // The English text lives in the HTML above (edit it there).
+  // The Korean text lives here. Each key matches a data-i18n="..." in the HTML.
+  var ko = {
+    "name": "신민철",
+    "nav.about": "소개",
+    "nav.skills": "기술",
+    "nav.projects": "프로젝트",
+    "nav.education": "학력",
+    "nav.contact": "연락처",
+
+    "hero.hello": "안녕하세요, 저는",
+    "hero.role": "백엔드 개발자 · 컴퓨터공학 졸업생",
+    "hero.tagline": "저는 안정적인 API와 데이터베이스 기반 시스템을 만듭니다. 최근 졸업했으며, 빠르게 배우고 첫날부터 기여할 수 있는 첫 백엔드 직무를 찾고 있습니다.",
+    "hero.view": "프로젝트 보기",
+    "hero.cv": "이력서 다운로드",
+
+    "about.title": "소개",
+    "about.alt": "신민철 사진",
+    "about.p1": "2026년 6월에 마라나타 크리스천 대학교에서 컴퓨터공학을 졸업했습니다. 소프트웨어를 처음부터 만드는 일에 열정이 있으며, 현실의 문제를 해결하고 사람들의 일상에 긍정적인 영향을 주는 혁신적인 애플리케이션을 만드는 것을 좋아합니다.",
+    "about.p2": "창의적인 아이디어를 혁신적인 웹·모바일 애플리케이션으로 구현하는 것을 좋아합니다. 코딩 외에는 새로운 기기를 탐색하고, 애니메이션과 시각 디자인을 공부하며, 최신 기술 트렌드를 꾸준히 살펴보는 것을 즐깁니다.",
+    "about.p3": "위치: 대한민국 경기도 안성시 · 근무 형태: 대한민국 전역 현장 근무 가능, 이주 가능.",
+
+    "skills.title": "기술",
+    "skills.languages": "프로그래밍 언어",
+    "skills.backend": "백엔드 및 도구",
+
+    "projects.title": "프로젝트",
+    "link.source": "소스 코드",
+    "link.demo": "라이브 데모",
+
+    "p1.title": "프로젝트 1: 라즈베리 파이 기반 스마트 교실",
+    "p1.meta": "개인 프로젝트 · 2025",
+    "p1.desc": "교실 설비(프로젝터, 조명, 냉난방)를 관리하는 자동화 시스템을 설계하여, 강의 전 수동 작업으로 인한 지연을 없앴습니다.",
+    "p1.b1": "라즈베리 파이 GPIO 핀과 백엔드 서비스를 구성하여 하드웨어 부품 및 센서와 연동했습니다.",
+    "p1.b2": "입력 검증, 보안 통신, 자동 오류 복구를 구현하여 매일 안정적으로 운영되도록 했습니다.",
+    "p1.b3": "상세한 기술 문서를 작성하고 제어 시스템을 실제 운영 환경에 배포했습니다.",
+
+    "q.title": "잡 큐 및 모니터링 시스템",
+    "q.meta": "개인 프로젝트 · 2026 · 진행 중",
+    "q.desc": "여러 워커가 작업을 병렬로 처리하는 백그라운드 잡 큐로, 안정적인 비동기 시스템의 동작 원리를 배우기 위해 만들었습니다.",
+    "q.b1": "행 잠금(FOR UPDATE SKIP LOCKED)으로 워커가 작업을 가져가도록 하여, 각 작업이 하나의 워커에게만 할당되는 PostgreSQL 기반 잡 큐를 구현했습니다.",
+    "q.b2": "각 작업 시도마다 실행 로그를 남기는 워커 프로세스와, 작업을 추가하는 REST API를 작성했습니다.",
+
+    "p2.title": "프로젝트 2: [캡스톤 / 졸업 프로젝트 제목]",
+    "p2.meta": "마라나타 크리스천 대학교 · 2025–2026 · [인원]명 팀",
+    "p2.desc": "[프로젝트가 무엇인지 한 문장으로.] 담당 역할: [직접 만든 부분].",
+
+    "p3.title": "프로젝트 3: 포트폴리오 웹사이트",
+    "p3.meta": "개인 프로젝트 · 2026",
+    "p3.desc": "온라인 이력서 역할을 하는 반응형 개인 웹사이트로, 다크 모드와 영어/한국어 전환 기능이 있습니다. HTML, CSS, JavaScript로 제작했습니다.",
+
+    "edu.title": "학력 및 자격증",
+    "edu.degree": "컴퓨터공학",
+    "edu.meta": "마라나타 크리스천 대학교 · 2026년 6월 졸업",
+    "edu.courses": "관련 과목:",
+    "edu.c1": "데이터베이스 & SQL",
+    "edu.c2": "웹 개발",
+    "edu.c3": "게임 프로그래밍",
+    "edu.c4": "아두이노",
+
+    "act.title": "학생 단체 활동 및 리더십",
+    "act.role": "기획·예산 담당, 컴퓨터공학과 학생 단체",
+    "act.meta": "마라나타 크리스천 대학교 · [시작 연도] – 2026",
+    "act.b1": "행사와 워크숍을 처음부터 끝까지 기획했습니다: 일정, 활동 구성, 당일 필요한 준비물 관리",
+    "act.b2": "단체 예산을 관리하고 간식, 점심, 물품 지출을 기록하여 모든 행사가 예산 안에서 진행되도록 했습니다.",
+    "act.b3": "학과 대표 담당자와의 월간 회의에서 계획을 보고하고 단체에 필요한 사항을 요청했습니다.",
+    "act.b4": "신입생을 환영하는 오리엔테이션 게임과 아이스브레이킹 활동을 운영했습니다.",
+    "act.t1": "행사 기획",
+    "act.t2": "예산 관리",
+    "act.t3": "조직 운영",
+    "act.t4": "보고",
+
+    "contact.title": "연락하기",
+    "contact.intro": "신입 백엔드 및 소프트웨어 엔지니어 직무에 지원하고자 합니다. 가장 쉬운 연락 방법은 다음과 같습니다:",
+    "contact.phone": "전화:",
+    "contact.email": "이메일:"
+  };
+  var koTitle = "신민철 | 백엔드 개발자";
+  var enTitle = document.title;
+
+  var textNodes = document.querySelectorAll("[data-i18n]");
+  var altNodes = document.querySelectorAll("[data-i18n-alt]");
+  var buttons = document.querySelectorAll(".lang-switch button");
+
+  // Remember the English text that is written in the HTML
+  textNodes.forEach(function (el) { el.dataset.en = el.textContent.trim(); });
+  altNodes.forEach(function (el) { el.dataset.en = el.getAttribute("alt"); });
+
+  function setLang(lang) {
+    textNodes.forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      el.textContent = (lang === "ko" && ko[key]) ? ko[key] : el.dataset.en;
+    });
+    altNodes.forEach(function (el) {
+      var key = el.getAttribute("data-i18n-alt");
+      el.setAttribute("alt", (lang === "ko" && ko[key]) ? ko[key] : el.dataset.en);
+    });
+    document.documentElement.lang = lang;
+    document.title = lang === "ko" ? koTitle : enTitle;
+    buttons.forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
+    });
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  setLang(saved === "ko" ? "ko" : "en");
+
+  // Light / dark theme
+  var root = document.documentElement;
+  var themeBtn = document.querySelector(".theme-btn");
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    return t ? t === "dark" : mq.matches;
+  }
+  function paintTheme() {
+    themeBtn.textContent = isDark() ? "☀️" : "🌙";
+    themeBtn.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
+  if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+  themeBtn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    paintTheme();
+  });
+  if (mq.addEventListener) mq.addEventListener("change", paintTheme);
+  paintTheme();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
