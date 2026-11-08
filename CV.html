@@ -118,6 +118,9 @@
   .card .stack .tag { background: var(--bg); font-size: 0.82rem; padding: 2px 10px; }
   .card .links { margin-top: 12px; font-size: 0.95rem; }
   .card .links a { margin-right: 14px; }
+  .card .shots { display: flex; gap: 10px; margin-top: 14px; overflow-x: auto; }
+  .card .shots:empty { display: none; }
+  .card .shots img { height: 260px; width: auto; border-radius: 10px; border: 1px solid var(--border); }
 
   .contact-list { list-style: none; margin-top: 14px; }
   .contact-list li { margin-bottom: 8px; }
@@ -248,6 +251,39 @@
             <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
           </div>
           <div class="links"><a href="https://github.com/Mincheol1016/job-queue-monitor" data-i18n="link.source">Source code</a></div>
+        </article>
+
+        <!-- NEW: Real estate mobile app -->
+        <article class="card">
+          <h3 data-i18n="r.title">Real Estate Listing App (Mobile)</h3>
+          <p class="meta" data-i18n="r.meta">Personal project · 2026 · In progress</p>
+          <p data-i18n="r.desc">A mobile app for browsing rental and sale listings in the style of Korean real estate apps, built to practice UI/UX design and to grow into a real client project later.</p>
+          <ul>
+            <li data-i18n="r.b1">Built the mobile UI with React Native (Expo) and TypeScript: bottom-tab navigation, a home feed with property-type filters, and a listing detail screen with a favorite toggle and a contact button.</li>
+            <li data-i18n="r.b2">Organized the app around a shared theme (colors, spacing) and typed mock listing data with Korean pricing formats (월세 / 전세 / 매매), so it can later connect to a real backend API.</li>
+          </ul>
+          <!-- Put your phone screenshots next to this file with these names. Missing images are hidden automatically. -->
+          <div class="shots"><img src="realestate-home.png" alt="Home screen of the real estate app" data-i18n-alt="r.alt1" onerror="this.remove()"><img src="realestate-detail.png" alt="Listing detail screen of the real estate app" data-i18n-alt="r.alt2" onerror="this.remove()"></div>
+          <div class="stack tags">
+            <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span><span class="tag">Expo Router</span>
+          </div>
+          <div class="links"><a href="https://github.com/Mincheol1016/realestate-mobile" data-i18n="link.source">Source code</a></div>
+        </article>
+
+        <!-- NEW: Cafe ordering website -->
+        <article class="card">
+          <h3 data-i18n="w.title">Morning Bean Cafe: Ordering Website</h3>
+          <p class="meta" data-i18n="w.meta">Personal practice project · 2026</p>
+          <p data-i18n="w.desc">A multi-page cafe website where customers choose takeout or dine-in, build an order from a menu, and get a receipt, while staff follow incoming orders on a dashboard. Built to practice front-end fundamentals without a framework.</p>
+          <ul>
+            <li data-i18n="w.b1">Built a menu page with category filters and a shopping cart that updates totals instantly, followed by a receipt page that confirms the order and returns to the home screen automatically.</li>
+            <li data-i18n="w.b2">Built a staff dashboard to track orders, preparation status, and daily sales. Order data is stored in the browser (localStorage) because there is no backend yet.</li>
+            <li data-i18n="w.b3">Added an English/Korean language switch and light/dark mode that work across every page.</li>
+          </ul>
+          <div class="stack tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span>
+          </div>
+          <div class="links"><a href="https://github.com/Mincheol1016/morning-bean-cafe" data-i18n="link.source">Source code</a><a href="https://morning-bean-cafe.vercel.app/" data-i18n="link.demo">Live demo</a></div>
         </article>
 
         <article class="card">
@@ -382,6 +418,21 @@
     "q.desc": "여러 워커가 작업을 병렬로 처리하는 백그라운드 잡 큐로, 안정적인 비동기 시스템의 동작 원리를 배우기 위해 만들었습니다.",
     "q.b1": "행 잠금(FOR UPDATE SKIP LOCKED)으로 워커가 작업을 가져가도록 하여, 각 작업이 하나의 워커에게만 할당되는 PostgreSQL 기반 잡 큐를 구현했습니다.",
     "q.b2": "각 작업 시도마다 실행 로그를 남기는 워커 프로세스와, 작업을 추가하는 REST API를 작성했습니다.",
+
+    "r.title": "부동산 매물 앱 (모바일)",
+    "r.meta": "개인 프로젝트 · 2026 · 진행 중",
+    "r.desc": "한국 부동산 앱 스타일로 월세·전세·매매 매물을 둘러볼 수 있는 모바일 앱으로, UI/UX 설계를 연습하고 나중에 실제 클라이언트 프로젝트로 발전시킬 수 있도록 만들었습니다.",
+    "r.b1": "React Native(Expo)와 TypeScript로 모바일 UI를 구현했습니다: 하단 탭 내비게이션, 매물 유형 필터가 있는 홈 화면, 찜하기 버튼과 문의 버튼이 있는 매물 상세 화면.",
+    "r.b2": "색상·간격을 한곳에서 관리하는 공통 테마와 한국식 가격 표기(월세 / 전세 / 매매)를 적용한 타입 지정 목업 데이터로 구성하여, 이후 실제 백엔드 API와 연결할 수 있도록 했습니다.",
+    "r.alt1": "부동산 앱 홈 화면",
+    "r.alt2": "부동산 앱 매물 상세 화면",
+
+    "w.title": "모닝빈 카페: 주문 웹사이트",
+    "w.meta": "개인 연습 프로젝트 · 2026",
+    "w.desc": "고객이 포장 또는 매장 식사를 선택하고 메뉴에서 주문을 담아 영수증을 받을 수 있으며, 직원은 대시보드에서 들어온 주문을 확인하는 여러 페이지의 카페 웹사이트입니다. 프레임워크 없이 프론트엔드 기초를 연습하기 위해 만들었습니다.",
+    "w.b1": "카테고리 필터와 합계가 즉시 갱신되는 장바구니가 있는 메뉴 페이지를 만들고, 주문을 확인한 뒤 자동으로 홈 화면으로 돌아가는 영수증 페이지를 구현했습니다.",
+    "w.b2": "주문, 준비 상태, 일일 매출을 확인하는 직원용 대시보드를 만들었습니다. 아직 백엔드가 없어 주문 데이터는 브라우저(localStorage)에 저장됩니다.",
+    "w.b3": "모든 페이지에서 동작하는 영어/한국어 전환과 라이트/다크 모드를 추가했습니다.",
 
     "p2.title": "프로젝트 2: [캡스톤 / 졸업 프로젝트 제목]",
     "p2.meta": "마라나타 크리스천 대학교 · 2025–2026 · [인원]명 팀",
