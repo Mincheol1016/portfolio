@@ -1,138 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shin Min Cheol | Backend Developer</title>
-<meta name="description" content="CV, Computer Engineering graduate and aspiring backend developer">
-<style>
-  :root {
-    --bg: #ffffff;
-    --surface: #f4f5f7;
-    --text: #1c1e21;
-    --muted: #5f6672;
-    --accent: #2f6fed;
-    --border: #e1e4e8;
-  }
-  /* Dark colors: used automatically when the visitor's device is in dark mode,
-     or when the visitor presses the theme button */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #12141a;
-      --surface: #1b1e27;
-      --text: #eceef2;
-      --muted: #9aa1ad;
-      --accent: #6c9cff;
-      --border: #2a2e3a;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shin Min Cheol | Backend Developer</title>
+  <meta name="description" content="Shin Min Cheol - Computer Engineering graduate and aspiring Backend Developer">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: #e2e8f0;
     }
-  }
-  :root[data-theme="dark"] {
-    --bg: #12141a;
-    --surface: #1b1e27;
-    --text: #eceef2;
-    --muted: #9aa1ad;
-    --accent: #6c9cff;
-    --border: #2a2e3a;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  html[lang="ko"] body { word-break: keep-all; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
 
-  /* Top bar */
-  header.nav {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav .container {
-    display: flex; align-items: center; flex-wrap: wrap;
-    gap: 6px 18px; min-height: 56px; padding-top: 6px; padding-bottom: 6px;
-  }
-  .nav .logo { font-weight: 700; color: var(--text); margin-right: auto; }
-  .nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.95rem; }
-  .nav ul a { color: var(--muted); }
-  .nav ul a:hover { color: var(--accent); text-decoration: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --accent: #60a5fa;
+        --accent-hover: #3b82f6;
+        --border: #334155;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --border: #334155;
+    }
 
-  /* Language switch */
-  .lang-switch {
-    display: inline-flex; border: 1px solid var(--border);
-    border-radius: 999px; overflow: hidden;
-  }
-  .lang-switch button {
-    border: none; background: transparent; color: var(--muted);
-    font: inherit; font-size: 0.85rem; font-weight: 600;
-    padding: 4px 12px; cursor: pointer;
-  }
-  .lang-switch button:hover { color: var(--accent); }
-  .lang-switch button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-  .theme-btn {
-    border: 1px solid var(--border); background: transparent;
-    border-radius: 999px; width: 32px; height: 28px;
-    font-size: 0.95rem; line-height: 1; cursor: pointer;
-  }
-  .theme-btn:hover { border-color: var(--accent); }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
 
-  section { padding: 56px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 64px; }
-  section:last-of-type { border-bottom: none; }
-  h2 { font-size: 1.5rem; margin-bottom: 20px; }
-  p + p { margin-top: 12px; }
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .nav .container {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 8px 16px; min-height: 58px; padding: 8px 20px;
+    }
+    .nav .logo { font-weight: 700; color: var(--text); margin-right: auto; font-size: 1.05rem; }
+    .nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.95rem; }
+    .nav ul a { color: var(--muted); }
+    .nav ul a:hover { color: var(--accent); text-decoration: none; }
 
-  .hero { padding: 72px 0 56px; }
-  .hero .hello { color: var(--accent); font-weight: 600; margin-bottom: 8px; }
-  .hero h1 { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.15; margin-bottom: 8px; }
-  .hero .role { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
-  .hero .tagline { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin-bottom: 24px; }
-  .btn {
-    display: inline-block; padding: 10px 18px; border-radius: 8px;
-    font-weight: 600; margin: 0 8px 8px 0;
-    background: var(--accent); color: #fff;
-  }
-  .btn:hover { text-decoration: none; opacity: 0.9; }
-  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .lang-switch {
+      display: inline-flex; border: 1px solid var(--border);
+      border-radius: 999px; overflow: hidden;
+    }
+    .lang-switch button {
+      border: none; background: transparent; color: var(--muted);
+      font: inherit; font-size: 0.85rem; font-weight: 600;
+      padding: 5px 12px; cursor: pointer;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: var(--accent); color: #fff;
+    }
+    .theme-btn {
+      border: 1px solid var(--border); background: transparent;
+      border-radius: 999px; width: 34px; height: 30px;
+      font-size: 0.95rem; cursor: pointer;
+    }
 
-  .about { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-  .about img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; background: var(--surface); }
-  .about .text { flex: 1; min-width: 240px; }
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 70px; }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.55rem; margin-bottom: 24px; font-weight: 700; }
 
-  .skill-group { margin-bottom: 18px; }
-  .skill-group h3 { font-size: 1rem; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; }
+    .hero { padding: 80px 0 64px; }
+    .hero .hello { color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(2.1rem, 7vw, 3rem); line-height: 1.15; margin-bottom: 10px; }
+    .hero .role { font-size: 1.25rem; font-weight: 600; margin-bottom: 14px; }
+    .hero .tagline { color: var(--muted); font-size: 1.08rem; max-width: 560px; margin-bottom: 28px; }
+    .btn {
+      display: inline-block; padding: 11px 20px; border-radius: 8px;
+      font-weight: 600; margin: 0 10px 10px 0;
+      background: var(--accent); color: #fff;
+    }
+    .btn:hover { background: var(--accent-hover); text-decoration: none; }
+    .btn.secondary {
+      background: transparent; color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
 
-  .cards { display: grid; gap: 16px; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-  .card h3 { font-size: 1.1rem; margin-bottom: 2px; }
-  .card .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
-  .card ul { margin: 10px 0 0 18px; }
-  .card .stack { margin-top: 12px; }
-  .card .stack .tag { background: var(--bg); font-size: 0.82rem; padding: 2px 10px; }
-  .card .links { margin-top: 12px; font-size: 0.95rem; }
-  .card .links a { margin-right: 14px; }
-  .card .shots { display: flex; gap: 10px; margin-top: 14px; overflow-x: auto; }
-  .card .shots:empty { display: none; }
-  .card .shots img { height: 260px; width: auto; border-radius: 10px; border: 1px solid var(--border); }
+    .about { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .about img {
+      width: 140px; height: 140px; border-radius: 50%;
+      object-fit: cover; background: var(--surface);
+      border: 3px solid var(--border);
+    }
+    .about .text { flex: 1; min-width: 260px; }
+    .about .text p + p { margin-top: 14px; }
 
-  .contact-list { list-style: none; margin-top: 14px; }
-  .contact-list li { margin-bottom: 8px; }
+    .skill-group { margin-bottom: 22px; }
+    .skill-group h3 { font-size: 0.95rem; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 5px 13px; border-radius: 999px; font-size: 0.9rem;
+    }
 
-  footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 28px 0; }
+    .cards { display: grid; gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px;
+    }
+    .card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .card .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    .card ul { margin: 12px 0 0 18px; }
+    .card ul li { margin-bottom: 6px; }
+    .card .stack { margin-top: 16px; }
+    .card .stack .tag { background: var(--bg); font-size: 0.82rem; }
+    .card .links { margin-top: 14px; font-size: 0.95rem; }
+    .card .links a { margin-right: 16px; }
+    .card .shots { display: flex; gap: 12px; margin-top: 16px; overflow-x: auto; }
+    .card .shots img {
+      height: 240px; width: auto; border-radius: 10px;
+      border: 1px solid var(--border);
+    }
 
-  @media (max-width: 640px) {
-    .nav nav { order: 3; flex-basis: 100%; }
-    .nav ul { gap: 14px; font-size: 0.9rem; }
-    section { padding: 40px 0; scroll-margin-top: 100px; }
-  }
-</style>
+    .contact-list { list-style: none; margin-top: 16px; }
+    .contact-list li { margin-bottom: 10px; }
+
+    footer {
+      text-align: center; color: var(--muted);
+      font-size: 0.9rem; padding: 32px 0;
+    }
+
+    @media (max-width: 640px) {
+      .nav nav { order: 3; flex-basis: 100%; }
+      .nav ul { gap: 14px; font-size: 0.9rem; }
+      section { padding: 48px 0; }
+      .hero { padding: 60px 0 48px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -148,13 +169,11 @@
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
-    <!-- Language switch (top right) -->
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-lang="ko" aria-pressed="false">한국어</button>
     </div>
-    <!-- Light / dark switch -->
-    <button type="button" class="theme-btn" aria-label="Switch to dark mode">🌙</button>
+    <button type="button" class="theme-btn" aria-label="Toggle theme">🌙</button>
   </div>
 </header>
 
@@ -166,9 +185,12 @@
       <p class="hello" data-i18n="hero.hello">Hello, I'm</p>
       <h1 data-i18n="name">Shin Min Cheol</h1>
       <p class="role" data-i18n="hero.role">Backend Developer · Computer Engineering Graduate</p>
-      <p class="tagline" data-i18n="hero.tagline">I build reliable APIs and database-driven systems. I recently graduated and I'm looking for my first backend role where I can learn fast and contribute from day one.</p>
+      <p class="tagline" data-i18n="hero.tagline">
+        I build reliable APIs and database-driven systems.  
+        Recently graduated and looking for my first backend role where I can learn fast and contribute from day one.
+      </p>
       <a class="btn" href="#projects" data-i18n="hero.view">View my projects</a>
-      <a class="btn secondary" href="your-cv.pdf" download data-i18n="hero.cv">Download CV</a>
+      <a class="btn secondary" href="mailto:minkr2001@gmail.com" data-i18n="hero.contact">Contact me</a>
     </div>
   </section>
 
@@ -177,12 +199,20 @@
     <div class="container">
       <h2 data-i18n="about.title">About me</h2>
       <div class="about">
-        <!-- Put your photo in the same folder and name it photo.jpg (the picture hides itself if the file is missing) -->
-        <img src="photo.jpg" alt="Photo of Shin Min Cheol" data-i18n-alt="about.alt" onerror="this.style.display='none'">
+        <img src="photo.jpg" alt="Shin Min Cheol" onerror="this.style.display='none'">
         <div class="text">
-          <p data-i18n="about.p1">I graduated in Computer Engineering from Maranatha Christian University in June 2026. Driven by a passion for building software from the ground up, I enjoy creating innovative applications that solve real-world problems and make a positive impact on people's daily lives.</p>
-          <p data-i18n="about.p2">I enjoy bringing creative ideas to life through innovative web and mobile applications. Outside of coding, I like exploring emerging gadgets, studying animation and visual design, and staying up to date with new technology trends.</p>
-          <p data-i18n="about.p3">Location: Anseong-si, Gyeonggi-do, South Korea · Work preference: open to on-site roles across South Korea and open to relocation.</p>
+          <p data-i18n="about.p1">
+            I graduated in Computer Engineering from Maranatha Christian University in June 2026.  
+            I’m passionate about building software from the ground up and creating applications that solve real problems.
+          </p>
+          <p data-i18n="about.p2">
+            I enjoy turning ideas into working web and mobile applications.  
+            Outside of coding, I like exploring new gadgets, studying design, and staying up to date with technology trends.
+          </p>
+          <p data-i18n="about.p3">
+            Location: Anseong-si, Gyeonggi-do, South Korea  
+            · Open to on-site roles across South Korea and open to relocation.
+          </p>
         </div>
       </div>
     </div>
@@ -192,6 +222,7 @@
   <section id="skills">
     <div class="container">
       <h2 data-i18n="skills.title">Skills</h2>
+
       <div class="skill-group">
         <h3 data-i18n="skills.languages">Languages</h3>
         <div class="tags">
@@ -203,14 +234,24 @@
           <span class="tag">C / C++</span>
         </div>
       </div>
+
       <div class="skill-group">
-        <h3 data-i18n="skills.backend">Backend &amp; tools</h3>
+        <h3 data-i18n="skills.backend">Backend & Tools</h3>
         <div class="tags">
           <span class="tag">Node.js</span>
           <span class="tag">Express</span>
           <span class="tag">PostgreSQL</span>
           <span class="tag">Docker</span>
           <span class="tag">Git / GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 data-i18n="skills.frontend">Frontend & Mobile</h3>
+        <div class="tags">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">React Native</span>
+          <span class="tag">Expo</span>
         </div>
       </div>
     </div>
@@ -222,88 +263,92 @@
       <h2 data-i18n="projects.title">Projects</h2>
       <div class="cards">
 
+        <!-- Morning Bean Cafe -->
         <article class="card">
-          <h3 data-i18n="p1.title">Project 1: Smart Classroom with Raspberry Pi</h3>
-          <p class="meta" data-i18n="p1.meta">Personal project · 2025</p>
-          <p data-i18n="p1.desc">Engineered an automated system to manage classroom infrastructure (projectors, lighting, HVAC), eliminating manual operational delay before lectures.</p>
+          <h3 data-i18n="cafe.title">Morning Bean Cafe</h3>
+          <p class="meta" data-i18n="cafe.meta">Personal project · 2026</p>
+          <p data-i18n="cafe.desc">
+            A fully responsive multi-page cafe website with menu filtering, order cart, dark mode, and bilingual support (English / Korean).
+          </p>
           <ul>
-            <li data-i18n="p1.b1">Configured Raspberry Pi GPIO pins and backend services to interface with hardware components and sensors.</li>
-            <li data-i18n="p1.b2">Implemented input validation, secure communication, and automated error recovery for reliable daily operation.</li>
-            <li data-i18n="p1.b3">Created comprehensive technical documentation and deployed the control system to a live production environment.</li>
+            <li data-i18n="cafe.b1">Built with pure HTML, CSS, and JavaScript — no frameworks.</li>
+            <li data-i18n="cafe.b2">Implemented interactive menu filters, shopping cart, and language switching.</li>
+            <li data-i18n="cafe.b3">Deployed on Vercel with clean mobile-first design.</li>
           </ul>
-          <!-- Change these tags to what you really used in this project -->
           <div class="stack tags">
-            <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
           </div>
-          <div class="links"><a href="#" data-i18n="link.source">Source code</a><a href="#" data-i18n="link.demo">Live demo</a></div>
+          <div class="links">
+            <a href="https://morning-bean-cafe.vercel.app/" target="_blank" data-i18n="link.demo">Live demo</a>
+            <a href="https://github.com/Mincheol1016/morning-bean-cafe" target="_blank" data-i18n="link.source">Source code</a>
+          </div>
         </article>
 
-        <!-- NEW: Job Queue project -->
+        <!-- Job Queue -->
         <article class="card">
-          <h3 data-i18n="q.title">Job Queue &amp; Monitoring System</h3>
+          <h3 data-i18n="q.title">Job Queue & Monitoring System</h3>
           <p class="meta" data-i18n="q.meta">Personal project · 2026 · In progress</p>
-          <p data-i18n="q.desc">A background job queue where multiple workers process jobs in parallel, built to learn how reliable asynchronous systems work.</p>
+          <p data-i18n="q.desc">
+            A background job queue where multiple workers process jobs in parallel, built to understand reliable asynchronous systems.
+          </p>
           <ul>
-            <li data-i18n="q.b1">Built a PostgreSQL-backed job queue where workers claim jobs with row locking (FOR UPDATE SKIP LOCKED), so each job is taken by only one worker.</li>
-            <li data-i18n="q.b2">Wrote a worker process with execution logs for every job attempt, and a REST API for adding jobs.</li>
+            <li data-i18n="q.b1">PostgreSQL-backed queue using row locking (`FOR UPDATE SKIP LOCKED`).</li>
+            <li data-i18n="q.b2">Worker process with execution logs + REST API for adding jobs.</li>
           </ul>
           <div class="stack tags">
-            <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
           </div>
-          <div class="links"><a href="https://github.com/Mincheol1016/job-queue-monitor" data-i18n="link.source">Source code</a></div>
+          <div class="links">
+            <a href="https://github.com/Mincheol1016/job-queue-monitor" target="_blank" data-i18n="link.source">Source code</a>
+          </div>
         </article>
 
-        <!-- NEW: Real estate mobile app -->
+        <!-- Real Estate -->
         <article class="card">
           <h3 data-i18n="r.title">Real Estate Listing App (Mobile)</h3>
           <p class="meta" data-i18n="r.meta">Personal project · 2026 · In progress</p>
-          <p data-i18n="r.desc">A mobile app for browsing rental and sale listings in the style of Korean real estate apps, built to practice UI/UX design and to grow into a real client project later.</p>
+          <p data-i18n="r.desc">
+            A mobile app for browsing rental and sale listings, designed in the style of Korean real estate apps.
+          </p>
           <ul>
-            <li data-i18n="r.b1">Built the mobile UI with React Native (Expo) and TypeScript: bottom-tab navigation, a home feed with property-type filters, and a listing detail screen with a favorite toggle and a contact button.</li>
-            <li data-i18n="r.b2">Organized the app around a shared theme (colors, spacing) and typed mock listing data with Korean pricing formats (월세 / 전세 / 매매), so it can later connect to a real backend API.</li>
+            <li data-i18n="r.b1">Built with React Native (Expo) + TypeScript: bottom tabs, filters, detail screen, and favorites.</li>
+            <li data-i18n="r.b2">Used typed mock data with Korean pricing formats (월세 / 전세 / 매매).</li>
           </ul>
-          <!-- Put your phone screenshots next to this file with these names. Missing images are hidden automatically. -->
-          <div class="shots"><img src="realestate-home.png" alt="Home screen of the real estate app" data-i18n-alt="r.alt1" onerror="this.remove()"><img src="realestate-detail.png" alt="Listing detail screen of the real estate app" data-i18n-alt="r.alt2" onerror="this.remove()"></div>
-          <div class="stack tags">
-            <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span><span class="tag">Expo Router</span>
+          <div class="shots">
+            <img src="realestate-home.png" alt="Home screen" onerror="this.remove()">
+            <img src="realestate-detail.png" alt="Detail screen" onerror="this.remove()">
           </div>
-          <div class="links"><a href="https://github.com/Mincheol1016/realestate-mobile" data-i18n="link.source">Source code</a></div>
+          <div class="stack tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Expo</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/Mincheol1016/realestate-mobile" target="_blank" data-i18n="link.source">Source code</a>
+          </div>
         </article>
 
-        <!-- NEW: Cafe ordering website -->
+        <!-- Smart Classroom -->
         <article class="card">
-          <h3 data-i18n="w.title">Morning Bean Cafe: Ordering Website</h3>
-          <p class="meta" data-i18n="w.meta">Personal practice project · 2026</p>
-          <p data-i18n="w.desc">A multi-page cafe website where customers choose takeout or dine-in, build an order from a menu, and get a receipt, while staff follow incoming orders on a dashboard. Built to practice front-end fundamentals without a framework.</p>
+          <h3 data-i18n="p1.title">Smart Classroom with Raspberry Pi</h3>
+          <p class="meta" data-i18n="p1.meta">Personal project · 2025</p>
+          <p data-i18n="p1.desc">
+            Automated system to manage classroom infrastructure (projectors, lighting, HVAC) to reduce manual setup time before lectures.
+          </p>
           <ul>
-            <li data-i18n="w.b1">Built a menu page with category filters and a shopping cart that updates totals instantly, followed by a receipt page that confirms the order and returns to the home screen automatically.</li>
-            <li data-i18n="w.b2">Built a staff dashboard to track orders, preparation status, and daily sales. Order data is stored in the browser (localStorage) because there is no backend yet.</li>
-            <li data-i18n="w.b3">Added an English/Korean language switch and light/dark mode that work across every page.</li>
+            <li data-i18n="p1.b1">Configured Raspberry Pi GPIO and backend services to control hardware.</li>
+            <li data-i18n="p1.b2">Implemented input validation, secure communication, and error recovery.</li>
           </ul>
           <div class="stack tags">
-            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
           </div>
-          <div class="links"><a href="https://github.com/Mincheol1016/morning-bean-cafe" data-i18n="link.source">Source code</a><a href="https://morning-bean-cafe.vercel.app/" data-i18n="link.demo">Live demo</a></div>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="p2.title">Project 2: [Capstone / Thesis Title]</h3>
-          <p class="meta" data-i18n="p2.meta">Maranatha Christian University · 2025–2026 · Team of [number]</p>
-          <p data-i18n="p2.desc">[One sentence on what the project does.] My part: [what you built].</p>
-          <div class="stack tags">
-            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
-          </div>
-          <div class="links"><a href="#" data-i18n="link.source">Source code</a></div>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="p3.title">Project 3: Portfolio Website</h3>
-          <p class="meta" data-i18n="p3.meta">Personal project · 2026</p>
-          <p data-i18n="p3.desc">A responsive personal website that works as an online CV, with dark mode and an English/Korean language switch. Built with HTML, CSS, and JavaScript.</p>
-          <div class="stack tags">
-            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-          </div>
-          <div class="links"><a href="#" data-i18n="link.source">Source code</a></div>
         </article>
 
       </div>
@@ -313,42 +358,17 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="container">
-      <h2 data-i18n="edu.title">Education &amp; certificates</h2>
+      <h2 data-i18n="education.title">Education</h2>
       <div class="cards">
         <article class="card">
-          <h3 data-i18n="edu.degree">Computer Engineering</h3>
+          <h3 data-i18n="edu.title">Computer Engineering</h3>
           <p class="meta" data-i18n="edu.meta">Maranatha Christian University · Graduated June 2026</p>
           <p data-i18n="edu.courses">Relevant courses:</p>
-          <div class="tags" style="margin-top:8px;">
-            <span class="tag" data-i18n="edu.c1">Databases &amp; SQL</span>
-            <span class="tag" data-i18n="edu.c2">Web Development</span>
-            <span class="tag" data-i18n="edu.c3">Game Programming</span>
-            <span class="tag" data-i18n="edu.c4">Arduino</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACTIVITIES -->
-  <section id="activities">
-    <div class="container">
-      <h2 data-i18n="act.title">Student organization &amp; leadership</h2>
-      <div class="cards">
-        <article class="card">
-          <h3 data-i18n="act.role">Planning &amp; Budget Officer, Computer Engineering Student Organization</h3>
-          <p class="meta" data-i18n="act.meta">Maranatha Christian University · [Start year] – 2026</p>
-          <ul>
-            <li data-i18n="act.b1">Planned events and workshops from start to finish: schedules, activities, and what was needed on the day</li>
-            <li data-i18n="act.b2">Managed the organization's budget and tracked spending on snacks, lunch, and supplies so every event stayed within funds</li>
-            <li data-i18n="act.b3">Prepared for the monthly meetings with the department head organizer by reporting on plans and requesting what the group needed</li>
-            <li data-i18n="act.b4">Helped run orientation games and icebreakers to welcome new students</li>
-          </ul>
-          <div class="stack tags">
-            <span class="tag" data-i18n="act.t1">Event planning</span>
-            <span class="tag" data-i18n="act.t2">Budgeting</span>
-            <span class="tag" data-i18n="act.t3">Organization</span>
-            <span class="tag" data-i18n="act.t4">Reporting</span>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Databases & SQL</span>
+            <span class="tag">Web Development</span>
+            <span class="tag">Game Programming</span>
+            <span class="tag">Arduino</span>
           </div>
         </article>
       </div>
@@ -359,11 +379,14 @@
   <section id="contact">
     <div class="container">
       <h2 data-i18n="contact.title">Get in touch</h2>
-      <p data-i18n="contact.intro">I'm open to junior backend and software engineering roles. The easiest way to reach me:</p>
+      <p data-i18n="contact.desc">
+        I’m open to junior backend and software engineering roles.  
+        Feel free to reach out:
+      </p>
       <ul class="contact-list">
-        <li><span data-i18n="contact.phone">Phone:</span> <a href="tel:+821074301016">010-7430-1016</a></li>
-        <li><span data-i18n="contact.email">Email:</span> <a href="mailto:minkr2001@gmail.com">minkr2001@gmail.com</a></li>
-        <li>GitHub: <a href="https://github.com/Mincheol1016">github.com/Mincheol1016</a></li>
+        <li>📧 Email: <a href="mailto:minkr2001@gmail.com">minkr2001@gmail.com</a></li>
+        <li>📱 Phone: <a href="tel:01074301016">010-7430-1016</a></li>
+        <li>🐙 GitHub: <a href="https://github.com/Mincheol1016" target="_blank">github.com/Mincheol1016</a></li>
       </ul>
     </div>
   </section>
@@ -371,165 +394,159 @@
 </main>
 
 <footer>
-  <div class="container">&copy; <span id="year"></span> <span data-i18n="name">Shin Min Cheol</span></div>
+  <div class="container">
+    &copy; <span id="year"></span> Shin Min Cheol
+  </div>
 </footer>
 
 <script>
-(function () {
-  // The English text lives in the HTML above (edit it there).
-  // The Korean text lives here. Each key matches a data-i18n="..." in the HTML.
-  var ko = {
-    "name": "신민철",
-    "nav.about": "소개",
-    "nav.skills": "기술",
-    "nav.projects": "프로젝트",
-    "nav.education": "학력",
-    "nav.contact": "연락처",
-
-    "hero.hello": "안녕하세요, 저는",
-    "hero.role": "백엔드 개발자 · 컴퓨터공학 졸업생",
-    "hero.tagline": "저는 안정적인 API와 데이터베이스 기반 시스템을 만듭니다. 최근 졸업했으며, 빠르게 배우고 첫날부터 기여할 수 있는 첫 백엔드 직무를 찾고 있습니다.",
-    "hero.view": "프로젝트 보기",
-    "hero.cv": "이력서 다운로드",
-
-    "about.title": "소개",
-    "about.alt": "신민철 사진",
-    "about.p1": "2026년 6월에 마라나타 크리스천 대학교에서 컴퓨터공학을 졸업했습니다. 소프트웨어를 처음부터 만드는 일에 열정이 있으며, 현실의 문제를 해결하고 사람들의 일상에 긍정적인 영향을 주는 혁신적인 애플리케이션을 만드는 것을 좋아합니다.",
-    "about.p2": "창의적인 아이디어를 혁신적인 웹·모바일 애플리케이션으로 구현하는 것을 좋아합니다. 코딩 외에는 새로운 기기를 탐색하고, 애니메이션과 시각 디자인을 공부하며, 최신 기술 트렌드를 꾸준히 살펴보는 것을 즐깁니다.",
-    "about.p3": "위치: 대한민국 경기도 안성시 · 근무 형태: 대한민국 전역 현장 근무 가능, 이주 가능.",
-
-    "skills.title": "기술",
-    "skills.languages": "프로그래밍 언어",
-    "skills.backend": "백엔드 및 도구",
-
-    "projects.title": "프로젝트",
-    "link.source": "소스 코드",
-    "link.demo": "라이브 데모",
-
-    "p1.title": "프로젝트 1: 라즈베리 파이 기반 스마트 교실",
-    "p1.meta": "개인 프로젝트 · 2025",
-    "p1.desc": "교실 설비(프로젝터, 조명, 냉난방)를 관리하는 자동화 시스템을 설계하여, 강의 전 수동 작업으로 인한 지연을 없앴습니다.",
-    "p1.b1": "라즈베리 파이 GPIO 핀과 백엔드 서비스를 구성하여 하드웨어 부품 및 센서와 연동했습니다.",
-    "p1.b2": "입력 검증, 보안 통신, 자동 오류 복구를 구현하여 매일 안정적으로 운영되도록 했습니다.",
-    "p1.b3": "상세한 기술 문서를 작성하고 제어 시스템을 실제 운영 환경에 배포했습니다.",
-
-    "q.title": "잡 큐 및 모니터링 시스템",
-    "q.meta": "개인 프로젝트 · 2026 · 진행 중",
-    "q.desc": "여러 워커가 작업을 병렬로 처리하는 백그라운드 잡 큐로, 안정적인 비동기 시스템의 동작 원리를 배우기 위해 만들었습니다.",
-    "q.b1": "행 잠금(FOR UPDATE SKIP LOCKED)으로 워커가 작업을 가져가도록 하여, 각 작업이 하나의 워커에게만 할당되는 PostgreSQL 기반 잡 큐를 구현했습니다.",
-    "q.b2": "각 작업 시도마다 실행 로그를 남기는 워커 프로세스와, 작업을 추가하는 REST API를 작성했습니다.",
-
-    "r.title": "부동산 매물 앱 (모바일)",
-    "r.meta": "개인 프로젝트 · 2026 · 진행 중",
-    "r.desc": "한국 부동산 앱 스타일로 월세·전세·매매 매물을 둘러볼 수 있는 모바일 앱으로, UI/UX 설계를 연습하고 나중에 실제 클라이언트 프로젝트로 발전시킬 수 있도록 만들었습니다.",
-    "r.b1": "React Native(Expo)와 TypeScript로 모바일 UI를 구현했습니다: 하단 탭 내비게이션, 매물 유형 필터가 있는 홈 화면, 찜하기 버튼과 문의 버튼이 있는 매물 상세 화면.",
-    "r.b2": "색상·간격을 한곳에서 관리하는 공통 테마와 한국식 가격 표기(월세 / 전세 / 매매)를 적용한 타입 지정 목업 데이터로 구성하여, 이후 실제 백엔드 API와 연결할 수 있도록 했습니다.",
-    "r.alt1": "부동산 앱 홈 화면",
-    "r.alt2": "부동산 앱 매물 상세 화면",
-
-    "w.title": "모닝빈 카페: 주문 웹사이트",
-    "w.meta": "개인 연습 프로젝트 · 2026",
-    "w.desc": "고객이 포장 또는 매장 식사를 선택하고 메뉴에서 주문을 담아 영수증을 받을 수 있으며, 직원은 대시보드에서 들어온 주문을 확인하는 여러 페이지의 카페 웹사이트입니다. 프레임워크 없이 프론트엔드 기초를 연습하기 위해 만들었습니다.",
-    "w.b1": "카테고리 필터와 합계가 즉시 갱신되는 장바구니가 있는 메뉴 페이지를 만들고, 주문을 확인한 뒤 자동으로 홈 화면으로 돌아가는 영수증 페이지를 구현했습니다.",
-    "w.b2": "주문, 준비 상태, 일일 매출을 확인하는 직원용 대시보드를 만들었습니다. 아직 백엔드가 없어 주문 데이터는 브라우저(localStorage)에 저장됩니다.",
-    "w.b3": "모든 페이지에서 동작하는 영어/한국어 전환과 라이트/다크 모드를 추가했습니다.",
-
-    "p2.title": "프로젝트 2: [캡스톤 / 졸업 프로젝트 제목]",
-    "p2.meta": "마라나타 크리스천 대학교 · 2025–2026 · [인원]명 팀",
-    "p2.desc": "[프로젝트가 무엇인지 한 문장으로.] 담당 역할: [직접 만든 부분].",
-
-    "p3.title": "프로젝트 3: 포트폴리오 웹사이트",
-    "p3.meta": "개인 프로젝트 · 2026",
-    "p3.desc": "온라인 이력서 역할을 하는 반응형 개인 웹사이트로, 다크 모드와 영어/한국어 전환 기능이 있습니다. HTML, CSS, JavaScript로 제작했습니다.",
-
-    "edu.title": "학력 및 자격증",
-    "edu.degree": "컴퓨터공학",
-    "edu.meta": "마라나타 크리스천 대학교 · 2026년 6월 졸업",
-    "edu.courses": "관련 과목:",
-    "edu.c1": "데이터베이스 & SQL",
-    "edu.c2": "웹 개발",
-    "edu.c3": "게임 프로그래밍",
-    "edu.c4": "아두이노",
-
-    "act.title": "학생 단체 활동 및 리더십",
-    "act.role": "기획·예산 담당, 컴퓨터공학과 학생 단체",
-    "act.meta": "마라나타 크리스천 대학교 · [시작 연도] – 2026",
-    "act.b1": "행사와 워크숍을 처음부터 끝까지 기획했습니다: 일정, 활동 구성, 당일 필요한 준비물 관리",
-    "act.b2": "단체 예산을 관리하고 간식, 점심, 물품 지출을 기록하여 모든 행사가 예산 안에서 진행되도록 했습니다.",
-    "act.b3": "학과 대표 담당자와의 월간 회의에서 계획을 보고하고 단체에 필요한 사항을 요청했습니다.",
-    "act.b4": "신입생을 환영하는 오리엔테이션 게임과 아이스브레이킹 활동을 운영했습니다.",
-    "act.t1": "행사 기획",
-    "act.t2": "예산 관리",
-    "act.t3": "조직 운영",
-    "act.t4": "보고",
-
-    "contact.title": "연락하기",
-    "contact.intro": "신입 백엔드 및 소프트웨어 엔지니어 직무에 지원하고자 합니다. 가장 쉬운 연락 방법은 다음과 같습니다:",
-    "contact.phone": "전화:",
-    "contact.email": "이메일:"
-  };
-  var koTitle = "신민철 | 백엔드 개발자";
-  var enTitle = document.title;
-
-  var textNodes = document.querySelectorAll("[data-i18n]");
-  var altNodes = document.querySelectorAll("[data-i18n-alt]");
-  var buttons = document.querySelectorAll(".lang-switch button");
-
-  // Remember the English text that is written in the HTML
-  textNodes.forEach(function (el) { el.dataset.en = el.textContent.trim(); });
-  altNodes.forEach(function (el) { el.dataset.en = el.getAttribute("alt"); });
-
-  function setLang(lang) {
-    textNodes.forEach(function (el) {
-      var key = el.getAttribute("data-i18n");
-      el.textContent = (lang === "ko" && ko[key]) ? ko[key] : el.dataset.en;
-    });
-    altNodes.forEach(function (el) {
-      var key = el.getAttribute("data-i18n-alt");
-      el.setAttribute("alt", (lang === "ko" && ko[key]) ? ko[key] : el.dataset.en);
-    });
-    document.documentElement.lang = lang;
-    document.title = lang === "ko" ? koTitle : enTitle;
-    buttons.forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
-    });
-    try { localStorage.setItem("lang", lang); } catch (e) {}
-  }
-
-  buttons.forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
-  });
-
-  var saved = null;
-  try { saved = localStorage.getItem("lang"); } catch (e) {}
-  setLang(saved === "ko" ? "ko" : "en");
-
-  // Light / dark theme
-  var root = document.documentElement;
-  var themeBtn = document.querySelector(".theme-btn");
-  var mq = window.matchMedia("(prefers-color-scheme: dark)");
-  function isDark() {
-    var t = root.getAttribute("data-theme");
-    return t ? t === "dark" : mq.matches;
-  }
-  function paintTheme() {
-    themeBtn.textContent = isDark() ? "☀️" : "🌙";
-    themeBtn.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var savedTheme = null;
-  try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
-  if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
-  themeBtn.addEventListener("click", function () {
-    var next = isDark() ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
-    paintTheme();
-  });
-  if (mq.addEventListener) mq.addEventListener("change", paintTheme);
-  paintTheme();
-
   document.getElementById("year").textContent = new Date().getFullYear();
-})();
+
+  const themeBtn = document.querySelector(".theme-btn");
+  const root = document.documentElement;
+
+  function updateThemeIcon() {
+    const isDark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    themeBtn.textContent = isDark ? "☀️" : "🌙";
+  }
+
+  themeBtn.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    if (current === "dark") {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.setAttribute("data-theme", "dark");
+    }
+    updateThemeIcon();
+  });
+  updateThemeIcon();
+
+  const translations = {
+    en: {
+      name: "Shin Min Cheol",
+      "nav.about": "About",
+      "nav.skills": "Skills",
+      "nav.projects": "Projects",
+      "nav.education": "Education",
+      "nav.contact": "Contact",
+      "hero.hello": "Hello, I'm",
+      "hero.role": "Backend Developer · Computer Engineering Graduate",
+      "hero.tagline": "I build reliable APIs and database-driven systems. Recently graduated and looking for my first backend role where I can learn fast and contribute from day one.",
+      "hero.view": "View my projects",
+      "hero.contact": "Contact me",
+      "about.title": "About me",
+      "about.p1": "I graduated in Computer Engineering from Maranatha Christian University in June 2026. I’m passionate about building software from the ground up and creating applications that solve real problems.",
+      "about.p2": "I enjoy turning ideas into working web and mobile applications. Outside of coding, I like exploring new gadgets, studying design, and staying up to date with technology trends.",
+      "about.p3": "Location: Anseong-si, Gyeonggi-do, South Korea · Open to on-site roles across South Korea and open to relocation.",
+      "skills.title": "Skills",
+      "skills.languages": "Languages",
+      "skills.backend": "Backend & Tools",
+      "skills.frontend": "Frontend & Mobile",
+      "projects.title": "Projects",
+      "cafe.title": "Morning Bean Cafe",
+      "cafe.meta": "Personal project · 2026",
+      "cafe.desc": "A fully responsive multi-page cafe website with menu filtering, order cart, dark mode, and bilingual support (English / Korean).",
+      "cafe.b1": "Built with pure HTML, CSS, and JavaScript — no frameworks.",
+      "cafe.b2": "Implemented interactive menu filters, shopping cart, and language switching.",
+      "cafe.b3": "Deployed on Vercel with clean mobile-first design.",
+      "q.title": "Job Queue & Monitoring System",
+      "q.meta": "Personal project · 2026 · In progress",
+      "q.desc": "A background job queue where multiple workers process jobs in parallel, built to understand reliable asynchronous systems.",
+      "q.b1": "PostgreSQL-backed queue using row locking (FOR UPDATE SKIP LOCKED).",
+      "q.b2": "Worker process with execution logs + REST API for adding jobs.",
+      "r.title": "Real Estate Listing App (Mobile)",
+      "r.meta": "Personal project · 2026 · In progress",
+      "r.desc": "A mobile app for browsing rental and sale listings, designed in the style of Korean real estate apps.",
+      "r.b1": "Built with React Native (Expo) + TypeScript: bottom tabs, filters, detail screen, and favorites.",
+      "r.b2": "Used typed mock data with Korean pricing formats (월세 / 전세 / 매매).",
+      "p1.title": "Smart Classroom with Raspberry Pi",
+      "p1.meta": "Personal project · 2025",
+      "p1.desc": "Automated system to manage classroom infrastructure (projectors, lighting, HVAC) to reduce manual setup time before lectures.",
+      "p1.b1": "Configured Raspberry Pi GPIO and backend services to control hardware.",
+      "p1.b2": "Implemented input validation, secure communication, and error recovery.",
+      "link.demo": "Live demo",
+      "link.source": "Source code",
+      "education.title": "Education",
+      "edu.title": "Computer Engineering",
+      "edu.meta": "Maranatha Christian University · Graduated June 2026",
+      "edu.courses": "Relevant courses:",
+      "contact.title": "Get in touch",
+      "contact.desc": "I’m open to junior backend and software engineering roles. Feel free to reach out:"
+    },
+    ko: {
+      name: "신민철",
+      "nav.about": "소개",
+      "nav.skills": "기술",
+      "nav.projects": "프로젝트",
+      "nav.education": "학력",
+      "nav.contact": "연락처",
+      "hero.hello": "안녕하세요,",
+      "hero.role": "백엔드 개발자 · 컴퓨터공학 졸업",
+      "hero.tagline": "안정적인 API와 데이터베이스 기반 시스템을 만듭니다. 최근에 졸업했고, 빠르게 배우며 기여할 수 있는 첫 백엔드 직무를 찾고 있습니다.",
+      "hero.view": "프로젝트 보기",
+      "hero.contact": "연락하기",
+      "about.title": "소개",
+      "about.p1": "2026년 6월 마라나타 기독교대학교 컴퓨터공학과를 졸업했습니다. 소프트웨어를 처음부터 만드는 것을 좋아하며, 실제 문제를 해결하는 애플리케이션을 만들고 싶습니다.",
+      "about.p2": "아이디어를 웹과 모바일 애플리케이션으로 구현하는 것을 즐깁니다. 코딩 외에는 새로운 기기 탐구, 디자인 공부, 기술 트렌드를 따라가는 것을 좋아합니다.",
+      "about.p3": "거주지: 경기도 안성시 · 한국 내 현장 근무 및 이주 가능",
+      "skills.title": "기술",
+      "skills.languages": "언어",
+      "skills.backend": "백엔드 & 도구",
+      "skills.frontend": "프론트엔드 & 모바일",
+      "projects.title": "프로젝트",
+      "cafe.title": "Morning Bean Cafe",
+      "cafe.meta": "개인 프로젝트 · 2026",
+      "cafe.desc": "메뉴 필터링, 장바구니, 다크모드, 한/영 언어 지원이 포함된 반응형 카페 웹사이트입니다.",
+      "cafe.b1": "순수 HTML, CSS, JavaScript로 제작 (프레임워크 없음).",
+      "cafe.b2": "메뉴 필터, 장바구니, 언어 전환 기능을 구현했습니다.",
+      "cafe.b3": "Vercel에 배포했으며 모바일 우선 디자인입니다.",
+      "q.title": "Job Queue & Monitoring System",
+      "q.meta": "개인 프로젝트 · 2026 · 진행 중",
+      "q.desc": "여러 워커가 병렬로 작업을 처리하는 백그라운드 작업 큐 시스템입니다.",
+      "q.b1": "PostgreSQL 기반 큐와 행 잠금(FOR UPDATE SKIP LOCKED)을 사용했습니다.",
+      "q.b2": "실행 로그가 있는 워커 프로세스와 작업 추가용 REST API를 구현했습니다.",
+      "r.title": "부동산 매물 앱 (모바일)",
+      "r.meta": "개인 프로젝트 · 2026 · 진행 중",
+      "r.desc": "한국 부동산 앱 스타일의 매물 조회 모바일 애플리케이션입니다.",
+      "r.b1": "React Native (Expo) + TypeScript로 하단 탭, 필터, 상세 화면, 즐겨찾기를 구현했습니다.",
+      "r.b2": "월세 / 전세 / 매매 형식의 목 데이터를 사용했습니다.",
+      "p1.title": "라즈베리파이 스마트 교실",
+      "p1.meta": "개인 프로젝트 · 2025",
+      "p1.desc": "강의 전 프로젝터, 조명, 공조 장치를 자동으로 제어하는 시스템입니다.",
+      "p1.b1": "라즈베리파이 GPIO와 백엔드 서비스를 연동해 하드웨어를 제어했습니다.",
+      "p1.b2": "입력 검증, 안전한 통신, 오류 복구 기능을 구현했습니다.",
+      "link.demo": "라이브 데모",
+      "link.source": "소스 코드",
+      "education.title": "학력",
+      "edu.title": "컴퓨터공학",
+      "edu.meta": "마라나타 기독교대학교 · 2026년 6월 졸업",
+      "edu.courses": "주요 수강 과목:",
+      "contact.title": "연락처",
+      "contact.desc": "주니어 백엔드 및 소프트웨어 엔지니어 직무에 관심이 있습니다. 편하게 연락 주세요:"
+    }
+  };
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+      btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+    });
+    localStorage.setItem("lang", lang);
+  }
+
+  document.querySelectorAll(".lang-switch button").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem("lang") || "en";
+  setLanguage(savedLang);
 </script>
 </body>
 </html>
